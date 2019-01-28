@@ -8,8 +8,8 @@
     },
     {
       "id": "2",
-      "title": "Call",
-      "message": "Team Walmart to talk about notes",
+      "title": "Talk",
+      "message": "About notes",
       "editMode": false
     },
     {
@@ -21,7 +21,7 @@
     {
       "id": "4",
       "title": "Sushi for Breakfast",
-      "message": "Is always a good idea....",
+      "message": "Is always a good idea...",
       "editMode": false
     }
   ]
