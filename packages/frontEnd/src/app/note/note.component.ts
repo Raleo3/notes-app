@@ -38,7 +38,6 @@ export class NoteComponent implements OnInit {
 
   enableEdit(id: number) {
     this.note.editMode = true;
-    // TODO: Animate the icon change..can you?
   }
 
   updateNote(id: number, disabled: boolean) {
@@ -53,6 +52,5 @@ export class NoteComponent implements OnInit {
         this.note = updatedNote;
         this.note.id = parseInt(this.note.id, 10);
       });
-    // TODO: error handling on failed service call
   }
 }
