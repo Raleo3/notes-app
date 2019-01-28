@@ -5,7 +5,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
+import {
+    MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';

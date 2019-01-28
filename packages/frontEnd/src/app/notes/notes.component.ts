@@ -20,7 +20,7 @@ const BUTTON_TEXT = {
 export class NotesComponent implements OnInit {
   public displayNoteForm = false;
   public buttonText = BUTTON_TEXT.add;
-  public notes: Array<Note> = []; // TODO: Get this from firebase, via Express
+  public notes: Array<Note> = [];
   public newTitle = new FormControl('', [Validators.required]);
   public newMessage = new FormControl('', [Validators.required]);
 
@@ -28,10 +28,14 @@ export class NotesComponent implements OnInit {
     private notesService: NotesService
   ) { }
 
+  // Receive as string, convert to number, use as number, send as a string
   ngOnInit() {
     this.notesService.getNotes()
       .subscribe(notes => {
-          this.notes = notes;
+          this.notes = notes.map(note => {
+            note.id = parseInt(note.id, 10);
+            return note;
+          });
       });
   }
 
@@ -69,18 +73,20 @@ export class NotesComponent implements OnInit {
 
     const mostRecentNote = _.sortBy(this.notes, 'id').pop();
     const newNote: Note = {
-      id: mostRecentNote.id + 1,
+      id: (mostRecentNote.id + 1).toString(),
       title: this.newTitle.value,
       message: this.newMessage.value,
       editMode: false
     };
 
     this.notesService.createNote(newNote)
-      .subscribe(response => {
-        // After the network request comes back 200...
-        // TODO; Animate for the new note to appear in the list after it persists with the backend...
+      .subscribe(createdNote => {
+        console.log('createdNote', createdNote);
+        newNote.id = parseInt(newNote.id, 10);
         this.notes.push(newNote);
+        console.log('this.notes', this.notes);
         this.resetForm();
+        // TODO; Animate for the new note to appear in the list after it persists with the backend...
       });
     // TODO: Add in request error handling
   }
@@ -91,27 +97,10 @@ export class NotesComponent implements OnInit {
     // TODO: Animate the icon change..can you?
   }
 
-  updateNote(id: number, disabled: boolean) {
-    if (disabled) {
-      return;
-    }
-
-    const note = this.notes.find(n => n.id === id);
-    this.notesService.updateNote(note)
-      .subscribe(response => {
-        console.log('update success');
-        note.editMode = false;
-      });
-    // TODO: error handling on failed service call
-  }
-
+  // Figure out lerna for easy package install & server spin up (concurrently?) - Express then Angular, only Angular opens in browser
   // Auto Scroll to bottom of page on note open
-  // Figure out how to server side render the JS...lame...
-  // Set up Express with Firebase...
-  // Write the endpoints...
-  // Figure out lerna for easy to spin up
-  // Figure out env files
+  // Figure out env files - Do I need?
+  // Remove extra packages/uneeded code
   // Add in Animations
-  // Add in error handling
-  // refactor JS & CSS
+  // Add in error handling for network calls
 }

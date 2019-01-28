@@ -1,18 +1,28 @@
 {
-    "notes": [{
-        "id": 1,
-        "title": "Write",
-        "message": "A great notes app",
-        "editMode": false
-    }, {
-        "id": 2,
-        "title": "Call",
-        "message": "Team Walmart to talk about notes",
-        "editMode": false
-    }, {
-        "id": 3,
-        "title": "Fly",
-        "message": "On an airplane to Carlsbad, CA",
-        "editMode": false
-    }]
+  "notes": [
+    {
+      "id": "1",
+      "title": "Write Code",
+      "message": "A great notes app",
+      "editMode": false
+    },
+    {
+      "id": "2",
+      "title": "Call",
+      "message": "Team Walmart to talk about notes",
+      "editMode": false
+    },
+    {
+      "id": "3",
+      "title": "Fly",
+      "message": "On an airplane to Carlsbad, CA",
+      "editMode": false
+    },
+    {
+      "id": "4",
+      "title": "Sushi for Breakfast",
+      "message": "Is always a good idea....",
+      "editMode": false
+    }
+  ]
 }

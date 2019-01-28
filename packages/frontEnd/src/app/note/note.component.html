@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="note">
     <div class='card-actions'>
         <ng-container *ngIf="note.editMode; else showCreateIcon">
             <button mat-icon-button [disabled]="!note.title || !note.message">

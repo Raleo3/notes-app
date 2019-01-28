@@ -30,6 +30,7 @@ export class NoteComponent implements OnInit {
         this.notesService.getNote(parseInt(params.noteId, 10))
           .subscribe(note => {
               this.note = note;
+              this.note.id = parseInt(this.note.id, 10);
           });
       }
    });
@@ -45,10 +46,12 @@ export class NoteComponent implements OnInit {
       return;
     }
 
+    this.note.id = this.note.id.toString();
+
     this.notesService.updateNote(this.note)
-      .subscribe(response => {
-        console.log('update success');
-        this.note.editMode = false;
+      .subscribe(updatedNote => {
+        this.note = updatedNote;
+        this.note.id = parseInt(this.note.id, 10);
       });
     // TODO: error handling on failed service call
   }
