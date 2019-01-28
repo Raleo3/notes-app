@@ -105,16 +105,13 @@ export class NotesComponent implements OnInit {
     // TODO: error handling on failed service call
   }
 
-// I suppose...we should have a note component...and then the note list is made up of all of these note components..
-  // Home page will list all notes, and then /:noteId will be individual note
-  // Figure out how to server side render the JS...lame...
-  // Add in Animations
   // Auto Scroll to bottom of page on note open
-  // Add in error handling
-  // refactor JS & CSS
+  // Figure out how to server side render the JS...lame...
   // Set up Express with Firebase...
   // Write the endpoints...
   // Figure out lerna for easy to spin up
   // Figure out env files
-  // clean up unecessary code
+  // Add in Animations
+  // Add in error handling
+  // refactor JS & CSS
 }

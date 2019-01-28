@@ -17,8 +17,7 @@ const BUTTON_TEXT = {
   encapsulation: ViewEncapsulation.None
 })
 export class NoteComponent implements OnInit {
-  @Input() note: Note; // TODO: Get this from firebase, via Express
-  // Input, Note IF no input, then you need to fetch...
+  @Input() note: Note;
 
   constructor(
     private route: ActivatedRoute,

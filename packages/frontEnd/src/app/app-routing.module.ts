@@ -6,9 +6,8 @@ import { NotesComponent } from './notes/notes.component';
 import { NoteComponent } from './note/note.component';
 
 export const routes: Routes = [
-  { path: '', component: NotesComponent }, // TODO: Do I need both??? - NotesListComponent
-  { path: ':noteId', component: NoteComponent}, // NoteComponent
-  { path: '**', component: NotesComponent } // NotesListComponent
+  { path: '', component: NotesComponent },
+  { path: ':noteId', component: NoteComponent }
 ];
 
 @NgModule({

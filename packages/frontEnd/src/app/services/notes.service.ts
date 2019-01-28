@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 
 import { Note } from '../notes/notes.interface';
 
@@ -37,17 +37,14 @@ export class NotesService {
 
   getNote(id: number) {
     const note = this.notes.find(n => n.id === id);
-    console.log('note', note);
     return of(note);
   }
 
   updateNote(note: Note) {
-    console.log('update note', note);
     return of(note);
   }
 
   createNote(note: Note) {
-    console.log('create note', note);
     return of(note);
   }
 }
