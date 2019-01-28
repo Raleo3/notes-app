@@ -97,9 +97,7 @@ export class NotesComponent implements OnInit {
     // TODO: Animate the icon change..can you?
   }
 
-  // Figure out lerna for easy package install & server spin up (concurrently?) - Express then Angular, only Angular opens in browser
   // Auto Scroll to bottom of page on note open
-  // Figure out env files - Do I need?
   // Remove extra packages/uneeded code
   // Add in Animations
   // Add in error handling for network calls
