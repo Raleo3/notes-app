@@ -31,7 +31,7 @@ export class NotesComponent implements OnInit {
   // Receive as string, convert to number, use as number, send as a string
   ngOnInit() {
     this.notesService.getNotes()
-      .subscribe(notes => {
+      .subscribe((notes: Array<Note>) => {
           this.notes = notes.map(note => {
             note.id = parseInt(note.id, 10);
             return note;

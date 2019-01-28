@@ -28,7 +28,7 @@ export class NoteComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (params.noteId) {
         this.notesService.getNote(parseInt(params.noteId, 10))
-          .subscribe(note => {
+          .subscribe((note: Note) => {
               this.note = note;
               this.note.id = parseInt(this.note.id, 10);
           });
@@ -49,7 +49,7 @@ export class NoteComponent implements OnInit {
     this.note.id = this.note.id.toString();
 
     this.notesService.updateNote(this.note)
-      .subscribe(updatedNote => {
+      .subscribe((updatedNote: Note) => {
         this.note = updatedNote;
         this.note.id = parseInt(this.note.id, 10);
       });
