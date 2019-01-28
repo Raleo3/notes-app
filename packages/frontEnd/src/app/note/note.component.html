@@ -1,0 +1,42 @@
+<mat-card>
+    <div class='card-actions'>
+        <ng-container *ngIf="note.editMode; else showCreateIcon">
+            <button mat-icon-button [disabled]="!note.title || !note.message">
+                <mat-icon class="done-icon" (click)="updateNote(note.id, !note.title || !note.message)">done</mat-icon>
+            </button>
+        </ng-container>
+        <ng-template #showCreateIcon>
+            <button mat-icon-button>
+                <mat-icon class="create-icon" (click)="enableEdit(note.id)">create</mat-icon>
+            </button>
+        </ng-template>
+    </div>
+    <mat-card-header>
+        <mat-card-title>
+            <ng-container *ngIf="note.editMode; else viewOnlyTitle">
+                <form class="note-title">
+                  <mat-form-field class="note-field">
+                    <input matInput required placeholder="Title" [(ngModel)]="note.title" name="title-{{note.id}}">
+                    <mat-error *ngIf="!note.title">You must enter a value</mat-error>
+                  </mat-form-field>
+                </form>
+            </ng-container>
+            <ng-template #viewOnlyTitle>
+                {{note.title}}
+            </ng-template>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <ng-container *ngIf="note.editMode; else viewOnlyMessage">
+                <form class="note-message">
+                  <mat-form-field class="note-field">
+                    <input matInput required placeholder="Message" [(ngModel)]="note.message" name="message-{{note.id}}">
+                    <mat-error *ngIf="!note.message">You must enter a value</mat-error>
+                  </mat-form-field>
+                </form>
+            </ng-container>
+            <ng-template #viewOnlyMessage>
+                {{note.message}}
+            </ng-template>
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>

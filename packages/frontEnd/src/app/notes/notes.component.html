@@ -1,0 +1,20 @@
+<div id='notes-container'>
+    <ul class="notes-list">
+        <li class="list-item" *ngFor='let note of notes'>
+            <app-note [note]="note"></app-note>
+        </li>
+    </ul>
+    <button mat-stroked-button class="new-note-button" [disabled]="displayNoteForm && (newTitle.invalid || newMessage.invalid)" id="add-note-button" color='primary' (click)='addNote()'>{{buttonText}}</button>
+    <button mat-stroked-button *ngIf="displayNoteForm" class="new-note-button" id="cancel-note-button" color='warn' (click)='cancelNote()'>Cancel Note</button>
+
+    <form *ngIf="displayNoteForm" class="new-note">
+        <mat-form-field class="new-note-field">
+            <input matInput required placeholder="Enter Title" [formControl]="newTitle">
+            <mat-error *ngIf="newTitle.invalid">{{getTitleErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="new-note-field">
+            <input matInput required placeholder="Enter Message" [formControl]="newMessage">
+            <mat-error *ngIf="newMessage.invalid">{{getNoteErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </form>
+</div>
