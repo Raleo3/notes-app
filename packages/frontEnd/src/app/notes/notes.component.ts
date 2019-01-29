@@ -65,7 +65,6 @@ export class NotesComponent implements OnInit {
     if (!this.displayNoteForm) {
       this.buttonText = BUTTON_TEXT.save;
       this.displayNoteForm = true;
-      // TODO: scroll to Form...
       return;
     }
 
